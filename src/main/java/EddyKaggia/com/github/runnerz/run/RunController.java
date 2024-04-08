@@ -8,7 +8,7 @@ import java.util.List;
 
 // Annotation says this is a REST controller -> expects JSON response
 // This is a class that responds to requests
-@RestController
+@RestController // Combination of @Controller and @ResponseBody
 public class RunController {
 
     private final RunRepository runRepository;
