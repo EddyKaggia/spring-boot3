@@ -8,6 +8,8 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+// This annotation indicates that this class is a repository component in the Spring framework,
+// typically used for database access
 @Repository
 public class RunRepository {
 
@@ -17,6 +19,14 @@ public class RunRepository {
         return runs;
     }
 
+    Run findById(Integer id) {
+        return runs.stream()
+                .filter(run -> run.id() == id)
+                .findFirst()
+                .get();
+    }
+
+    // The @PostConstruct annotated method initializes the repository with some sample data
     @PostConstruct
     private void init() {
         runs.add(new Run(1,
